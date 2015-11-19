@@ -11,7 +11,7 @@ A simple library for unidirectional dataflow architecture inspired by ReactJS [F
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/refluxjs.svg)](https://saucelabs.com/u/refluxjs)
 
-You can read an overview of Flux [here](https://facebook.github.io/flux/docs/overview.html), however the gist of it is to introduce a more functional programming style architecture by eschewing MVC like pattern and adopting a single data flow pattern.
+You can read an overview of Flux [here](https://facebook.github.io/flux/docs/overview.html), however the gist of it is to introduce a more functional programming style architecture by eschewing the MVC like pattern and adopting a single data flow pattern.
 
 ```
 ╔═════════╗       ╔════════╗       ╔═════════════════╗
@@ -66,10 +66,10 @@ Some concepts are still in Reflux in comparison with Flux:
 
 Reflux has refactored Flux to be a bit more dynamic and be more Functional Reactive Programming (FRP) friendly:
 
-* The singleton dispatcher is removed in favor for letting every action act as dispatcher instead.
+* The singleton dispatcher is removed in favor of letting every action act as a dispatcher instead.
 * Because actions are listenable, the stores may listen to them. Stores don't need to have big switch statements that do static type checking (of action types) with strings
 * Stores may listen to other stores, i.e. it is possible to create stores that can *aggregate data further*, similar to a map/reduce.
-* `waitFor` is replaced in favor to handle *serial* and *parallel* data flows:
+* `waitFor` is replaced so that it can handle *serial* and *parallel* data flows:
  * **Aggregate data stores** (mentioned above) may listen to other stores in *serial*
  * **Joins** for joining listeners in *parallel*
 * *Action creators* are not needed because RefluxJS actions are functions that will pass on the payload they receive to anyone listening to them
